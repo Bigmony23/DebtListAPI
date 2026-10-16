@@ -1,36 +1,44 @@
 DebtListAPI
 A Python API for managing personal debts.
 
-![Python](https://img.shields.io/badge/Python-3.9-blue.svg)
+[![Python Package](https://img.shields.io/pypi/v/debtlistapi.svg)](https://pypi.org/project/debtlistapi/)
+[![Build Status](https://travis-ci.org/Bigmony23/DebtListAPI.svg?branch=master)](https://travis-ci.org/Bigmony23/DebtListAPI)
 
-DebtListAPI is a lightweight RESTful API built with Python and Flask, designed for personal use to track and manage debts. It provides endpoints for adding, retrieving, updating, and deleting debt records. This API is ideal for individuals who want a simple, self-hosted solution to keep their financial obligations organized.
+DebtListAPI is a Python-based RESTful API designed to help individuals track and manage their personal debts. It provides endpoints for creating, retrieving, updating, and deleting debt records. This API is suitable for developers building personal finance applications or individuals who want a structured way to monitor their financial obligations.
 
-### Features
-
-*   RESTful API for debt management
-*   Endpoints for CRUD operations on debts
-*   Built with Flask for simplicity and flexibility
-*   Lightweight and easy to deploy
-
-### Installation
+*   **CRUD Operations:** Full Create, Read, Update, and Delete functionality for debt entries.
+*   **Debt Categorization:** Assign categories to debts for better organization.
+*   **Due Date Tracking:** Monitor upcoming payment deadlines.
+*   **Status Updates:** Mark debts as paid, partially paid, or outstanding.
+*   **User-Friendly API:** Simple and intuitive endpoints for easy integration.
 
 ```bash
-git clone https://github.com/Bigmony23/DebtListAPI.git
-cd DebtListAPI
-pip install -r requirements.txt
+pip install debtlistapi
 ```
 
-### Quick start
+```python
+from debtlistapi import DebtListAPI
 
-To run the API:
+api = DebtListAPI()
 
-```bash
-python app.py
+# Add a new debt
+api.add_debt(
+    name="Credit Card Payment",
+    amount=1200.50,
+    due_date="2023-12-15",
+    category="Credit Card"
+)
+
+# Get all debts
+all_debts = api.get_all_debts()
+print(all_debts)
+
+# Get a specific debt by ID
+debt_id = 1 # Assuming the first debt added has ID 1
+specific_debt = api.get_debt(debt_id)
+print(specific_debt)
 ```
 
-### Contributing
+Refer to the `CONTRIBUTING.md` file for details on how to contribute to this project.
 
-Please see our [CONTRIBUTING.md](CONTRIBUTING.md) for details on how to contribute.
-
-License
 MIT License
